@@ -37,6 +37,8 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@use '../style/generic' as *;
+
 header {
     height: 130px;
 }
@@ -50,14 +52,18 @@ header {
         position: relative;
         height: 3rem;
 
+        &.active {
+            color: $primary-color;
+        }
+
         &.active::after {
             content: "";
             position: absolute;
             bottom: -48px;
             left: 0;
             right: 0;
-            height: 2px;
-            background-color: #007bff;
+            height: 4px;
+            background-color: $primary-color;
         }
     }
 }
