@@ -1,11 +1,13 @@
 <script>
 import AppHeader from './components/AppHeader.vue';
 import AppMainCards from './components/AppMainCards.vue';
+import AppMainPages from './components/AppMainPages.vue';
 
 export default {
     components: {
         AppHeader,
         AppMainCards,
+        AppMainPages,
     }
 }
 </script>
@@ -15,6 +17,7 @@ export default {
 
     <main>
         <AppMainCards></AppMainCards>
+        <AppMainPages></AppMainPages>
     </main>
 </template>
 
