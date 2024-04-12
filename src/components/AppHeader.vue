@@ -56,7 +56,7 @@ export default {
     }
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 991px) {
     .navbar-nav {
         margin-top: 10px;
 
