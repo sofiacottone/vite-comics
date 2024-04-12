@@ -42,7 +42,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-@use '../style/generic.scss' as *;
+@use '../style/partials/variables' as *;
 
 section {
     background-color: $primary-color;

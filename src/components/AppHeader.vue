@@ -38,7 +38,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-@use '../style/generic' as *;
+@use '../style/partials/variables' as *;
 
 .navbar-nav {
 
