@@ -133,11 +133,16 @@ export default {
 .ms-bg-container {
     min-height: 360px;
     width: 100%;
-    background-image: url(../assets/img/dc-logo-bg.png), url(../assets/img/footer-bg.jpg);
-    background-position: 90% 50%, center;
-    background-repeat: no-repeat, no-repeat;
-    background-size: 500px, cover;
+    background-image: url(../assets/img/footer-bg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 
+    .container {
+        background-image: url(../assets/img/dc-logo-bg.png);
+        background-repeat: no-repeat;
+        background-position: right;
+    }
 }
 
 li {
