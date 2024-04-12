@@ -9,7 +9,7 @@ export default {
 <template>
     <header class="bg-light">
 
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary p-0">
             <div class="container">
                 <img src="../assets/img/dc-logo.png" alt="DC Logo">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -18,17 +18,18 @@ export default {
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav ms-auto text-uppercase">
-                        <a class="nav-link active" aria-current="page" href="#">link</a>
-                        <a class="nav-link" href="#">link</a>
-                        <a class="nav-link" href="#">link</a>
-                        <a class="nav-link" href="#">link</a>
-                        <a class="nav-link" href="#">link</a>
-                        <a class="nav-link" href="#">link</a>
-                        <a class="nav-link" href="#">link</a>
-                        <a class="nav-link" href="#">link</a>
-                        <a class="nav-link" href="#">link</a>
-                        <a class="nav-link" href="#">link</a>
+                    <!-- navbar links -->
+                    <div class="navbar-nav text-uppercase ms-auto">
+                        <a class="nav-link d-flex align-items-center" href="#">characters</a>
+                        <a class="nav-link active d-flex align-items-center" href="#">comics</a>
+                        <a class="nav-link d-flex align-items-center" href="#">movies</a>
+                        <a class="nav-link d-flex align-items-center" href="#">tv</a>
+                        <a class="nav-link d-flex align-items-center" href="#">games</a>
+                        <a class="nav-link d-flex align-items-center" href="#">collectibles</a>
+                        <a class="nav-link d-flex align-items-center" href="#">videos</a>
+                        <a class="nav-link d-flex align-items-center" href="#">fans</a>
+                        <a class="nav-link d-flex align-items-center" href="#">news</a>
+                        <a class="nav-link d-flex align-items-center" href="#">shop</a>
                     </div>
                 </div>
             </div>
@@ -39,31 +40,34 @@ export default {
 <style lang="scss" scoped>
 @use '../style/generic' as *;
 
-header {
-    height: 130px;
-}
-
 .navbar-nav {
 
     .nav-link {
         color: #464646;
         font-weight: bold;
-        border-bottom: 2px solid transparent;
+        border-bottom: 4px solid transparent;
         position: relative;
-        height: 3rem;
+        height: 130px;
 
         &.active {
             color: $primary-color;
+            border-bottom: 4px solid $primary-color;
         }
+    }
+}
 
-        &.active::after {
-            content: "";
-            position: absolute;
-            bottom: -48px;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background-color: $primary-color;
+@media screen and (max-width: 960px) {
+    .navbar-nav {
+        margin-top: 10px;
+
+        .nav-link {
+            height: 50px;
+        }
+    }
+
+    .navbar {
+        img {
+            margin-block: 10px
         }
     }
 }
