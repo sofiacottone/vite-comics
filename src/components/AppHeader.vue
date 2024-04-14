@@ -2,12 +2,65 @@
 export default {
     components: {
         name: 'AppHeader'
+    },
+    data() {
+        return {
+            activeItem: 0,
+            headerNavLinks: [
+                {
+                    "name": "characters",
+                    "active": false,
+                },
+                {
+                    "name": "comics",
+                    "active": true,
+                },
+                {
+                    "name": "movies",
+                    "active": false,
+                },
+                {
+                    "name": "tv",
+                    "active": false,
+                },
+                {
+                    "name": "games",
+                    "active": false,
+                },
+                {
+                    "name": "collectibles",
+                    "active": false,
+                },
+                {
+                    "name": "videos",
+                    "active": false,
+                },
+                {
+                    "name": "fans",
+                    "active": false,
+                },
+                {
+                    "name": "news",
+                    "active": false,
+                },
+                {
+                    "name": "shop",
+                    "active": false,
+                }
+            ]
+
+        }
+    },
+    methods: {
+        changeActiveItem(clickedIndex) {
+            this.activeItem = clickedIndex;
+        }
     }
 }
 </script>
 
 <template>
-    <header class="bg-light">
+    <header class="bg-light position-fixed w-100">
 
         <nav class="navbar navbar-expand-lg bg-body-tertiary p-0">
             <div class="container">
@@ -19,17 +72,9 @@ export default {
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <!-- navbar links -->
-                    <div class="navbar-nav text-uppercase ms-auto">
-                        <a class="nav-link d-flex align-items-center" href="#">characters</a>
-                        <a class="nav-link active d-flex align-items-center" href="#">comics</a>
-                        <a class="nav-link d-flex align-items-center" href="#">movies</a>
-                        <a class="nav-link d-flex align-items-center" href="#">tv</a>
-                        <a class="nav-link d-flex align-items-center" href="#">games</a>
-                        <a class="nav-link d-flex align-items-center" href="#">collectibles</a>
-                        <a class="nav-link d-flex align-items-center" href="#">videos</a>
-                        <a class="nav-link d-flex align-items-center" href="#">fans</a>
-                        <a class="nav-link d-flex align-items-center" href="#">news</a>
-                        <a class="nav-link d-flex align-items-center" href="#">shop</a>
+                    <div v-for="(link, index) in headerNavLinks" class="navbar-nav text-uppercase ms-auto">
+                        <a :class="{ 'active': index == activeItem }" class="nav-link d-flex align-items-center"
+                            @click="changeActiveItem(index)" href="#">{{ link.name }}</a>
                     </div>
                 </div>
             </div>
@@ -39,6 +84,13 @@ export default {
 
 <style lang="scss" scoped>
 @use '../style/partials/variables' as *;
+
+header {
+    overflow: hidden;
+    transition: 0.4s;
+    top: 0;
+    z-index: 100;
+}
 
 .navbar-nav {
 
