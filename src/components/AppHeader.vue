@@ -114,9 +114,9 @@ header {
     }
 }
 
+// resize navbar 
 .h-130 {
     height: 130px;
-
 }
 
 .nav-small {
@@ -127,6 +127,7 @@ header {
     height: 50px;
 }
 
+// responsive 
 @media screen and (max-width: 991px) {
     .navbar-nav {
         margin-top: 10px;
