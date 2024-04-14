@@ -47,14 +47,20 @@ export default {
                     "name": "shop",
                     "active": false,
                 }
-            ]
-
+            ],
+            scrollPosition: 0,
         }
     },
     methods: {
         changeActiveItem(clickedIndex) {
             this.activeItem = clickedIndex;
+        },
+        updateScroll() {
+            this.scrollPosition = window.scrollY;
         }
+    },
+    mounted() {
+        window.addEventListener('scroll', () => { this.updateScroll() });
     }
 }
 </script>
@@ -64,7 +70,7 @@ export default {
 
         <nav class="navbar navbar-expand-lg bg-body-tertiary p-0">
             <div class="container">
-                <img src="../assets/img/dc-logo.png" alt="DC Logo">
+                <img :class="[scrollPosition >= 20 ? 'logo-small' : '']" src="../assets/img/dc-logo.png" alt="DC Logo">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -73,8 +79,9 @@ export default {
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <!-- navbar links -->
                     <div v-for="(link, index) in headerNavLinks" class="navbar-nav text-uppercase ms-auto">
-                        <a :class="{ 'active': index == activeItem }" class="nav-link d-flex align-items-center"
-                            @click="changeActiveItem(index)" href="#">{{ link.name }}</a>
+                        <a :class="{ 'active': index == activeItem }, [scrollPosition >= 20 ? 'nav-small' : 'h-130']"
+                            class="nav-link d-flex align-items-center" @click="changeActiveItem(index)" href="#">{{
+                    link.name }}</a>
                     </div>
                 </div>
             </div>
@@ -99,13 +106,25 @@ header {
         font-weight: bold;
         border-bottom: 4px solid transparent;
         position: relative;
-        height: 130px;
 
         &.active {
             color: $primary-color;
             border-bottom: 4px solid $primary-color;
         }
     }
+}
+
+.h-130 {
+    height: 130px;
+
+}
+
+.nav-small {
+    height: 70px;
+}
+
+.logo-small {
+    height: 50px;
 }
 
 @media screen and (max-width: 991px) {
